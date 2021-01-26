@@ -1,4 +1,4 @@
-import { emptyFill, lightningChart, Point3D, PointSeriesTypes3D } from "@arction/lcjs"
+import { emptyFill, lightningChart, Point3D, PointSeriesTypes3D, PointStyle3D } from "@arction/lcjs"
 import { createProgressiveTraceGenerator } from "@arction/xydata"
 
 function addStyleSheet(styleString: string) {
@@ -37,7 +37,7 @@ const App = (
     /**
      * Type of Series to test.
      */
-    seriesType: 'Point' | 'Line',
+    seriesType: 'Point' | 'Line' | 'PointCloud',
 
 ): () => unknown => {
     const chart = lightningChart().Chart3D({
@@ -56,9 +56,9 @@ const App = (
     chart.getDefaultAxisZ()
         .setAnimationScroll(true)
 
-    const series = seriesType === 'Point' ?
-        // Select Triangulated Point Series for maximum geometry complexity.
-        chart.addPointSeries({ type: PointSeriesTypes3D.Triangulated }) :
+    const series =
+        seriesType === 'Point' ? chart.addPointSeries({ type: PointSeriesTypes3D.Triangulated }) :
+        seriesType === 'PointCloud' ? chart.addPointSeries({type: PointSeriesTypes3D.Pixelated}) :
         chart.addLineSeries()
 
     // Add points every frame.
@@ -193,6 +193,7 @@ body {
 
 #dataPointsRate {
     margin-left: 10px;
+    flex-grow: 1;
 }
 
 #pps {
@@ -217,6 +218,10 @@ div.innerHTML = `
     <input type="radio" id="lines" name="seriesType" value="lines">
     <label for="lines">Line Series 3D</label><br>
 </div>
+<div>
+    <input type="radio" id="pointCloud" name="seriesType" value="pointCloud">
+    <label for="pointCloud">Point Cloud Series 3D</label><br>
+</div>
 
 <input type="range" min="0" max="100" value="10" class="slider" id="dataPointsRate">
 
@@ -234,7 +239,7 @@ const chartDiv = document.createElement('div')
 document.body.append(chartDiv)
 chartDiv.id = 'chart'
 
-let seriesType: 'Point' | 'Line' = 'Point'
+let seriesType: 'Point' | 'Line' | 'PointCloud' = 'Point'
 let dataPointsPerSecond: number
 let dispose: () => unknown | undefined
 const updateApp = () => {
@@ -251,11 +256,15 @@ document.getElementById('lines').onchange = (e) => {
     seriesType = 'Line'
     updateApp()
 }
+document.getElementById('pointCloud').onchange = (e) => {
+    seriesType = 'PointCloud'
+    updateApp()
+}
 
 const updateDataPointsPerSecond = () => {
-    // [0 - 100] -> [?]
+    // [0 - 100] -> exponentially increasing range.
     const sliderValue = Math.max(1, Number(dataPointsRateSlider.value))
-    dataPointsPerSecond = Math.round(50 ** (1 + Math.log10(sliderValue)))
+    dataPointsPerSecond = Math.round(100 ** (1 + Math.log10(sliderValue)))
     console.log(`[TARGET = ${dataPointsPerSecond} data points per second]`)
 }
 updateDataPointsPerSecond()
