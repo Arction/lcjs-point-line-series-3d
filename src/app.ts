@@ -1,4 +1,4 @@
-import { AxisScrollStrategies, emptyFill, lightningChart, Point3D, PointSeriesTypes3D } from "@arction/lcjs"
+import { emptyFill, lightningChart, Point3D, PointSeriesTypes3D } from "@arction/lcjs"
 import { createProgressiveTraceGenerator } from "@arction/xydata"
 
 function addStyleSheet(styleString: string) {

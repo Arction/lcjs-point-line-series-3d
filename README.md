@@ -1,6 +1,8 @@
-# LightningChart<sup>&#174;</sup> JS TypeScript usage example
+# LightningChart<sup>&#174;</sup> JS Performance Test for 3D Line and Point Series
 
-This repository showcases how to use the LightningChart<sup>&#174;</sup> JS charting library with TypeScript and WebPack.
+This repository is a showcase for measuring performance of 3D Line and Point Series in an application with *extremely* large amounts of realtime data added on each frame. The application allows:
+- Choosing between series types with a Radio button.
+- Controlling amount of incoming data points with a slider.
 
 More information about LightningChart<sup>&#174;</sup> JS can be found from our website, https://www.arction.com/lightningchart-js/.
 
