@@ -1,7 +1,7 @@
 {
-  "name": "lcjs-typescript-example",
+  "name": "lcjs-performance-point-line-3d",
   "version": "1.0.0",
-  "description": "",
+  "description": "Performance measurement app for LC JS Point Series 3D and Line Series 3D",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -19,6 +19,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@arction/lcjs": "^2.1.0"
+    "@arction/lcjs": "^2.1.0",
+    "@arction/xydata": "^1.4.0"
   }
 }
