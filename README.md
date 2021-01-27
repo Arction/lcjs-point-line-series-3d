@@ -6,9 +6,9 @@ For 2D applications and more chart examples, please refer to our full [examples 
 
 Hardware accelerated rendering with *WebGL* enables applications that require rendering of massively complex data sets, or as in this case, large data sets that are updated at extremely high speed.
 
-![real-time data animation](real-time-data-animation.gif)
+<img src='real-time-data-animation.gif' height='300'></img>
 
-Try the performance on your machine [here][2]
+**Try the performance on *your* machine [here][2]**
 
 ## Performance benchmarks
 
@@ -38,25 +38,25 @@ All measurements were recorded in Google Chrome.
 
 Each data point (x, y, z) coordinate is rendered as a detailed sphere geometry.
 
-![sphere geometry](sphere-geometry.PNG)
+<img src='sphere-geometry.PNG' height='300'></img>
 
 -	Low end PC A: 6 000 points / second (equivalent of 6 kHz signal)
 -	High end PC A: **108 000 points / second** (equivalent of 108 kHz signal)
 
 Note, how the data rendering speed greatly benefits from having a strong GPU.
 
-If *even faster* streaming speeds are required, then a *Point Cloud Series 3D* can be used to render the same data without 3D geometry for maximum performance:
+If *even faster* streaming speeds are required, then a *Point Cloud Series 3D* can be used to render the same data without 3D geometry for maximum performance.
+
+<img src='pixels-2D.PNG' height='300'></img>
 
 -	Low end PC A: **65 000 points / second** (equivalent of 65 kHz signal)
 -	High end PC A: **504 000 points / second** (equivalent of 504 kHz signal)
-
-![pixels 2D](pixels-2D.PNG)
 
 ### Line Series 3D
 
 Active set of data points (x, y, z) coordinates is rendered as a continuous high detail line geometry.
 
-![line geometry](line-geometry.PNG)
+<img src='line-geometry.PNG' height='300'></img>
 
 -	Low end PC A: 1 500 points / second (equivalent of 1.5 kHz signal)
 -	High end PC A: **67 000 points / second** (equivalent of 67 kHz signal)
