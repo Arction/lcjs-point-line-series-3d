@@ -47,6 +47,12 @@ const App = (
         // Set 3D bounding box dimensions to highlight X Axis. 
         .setBoundingBox({ x: 1.0, y: 0.5, z: 0.4 })
     
+    // For supposed Mobile user place camera in a perspective that allocates more height than width.
+    if (navigator.userAgent.toLowerCase().match(/mobile/i)) {
+        console.log(`[MOBILE DEFAULT CAMERA LOCATION]`)
+        chart.setCameraLocation({x: 1.2638414757590688, y: 0.2037083195132063, z: 0.3563851989953059})
+    }
+
     const axisX = chart.getDefaultAxisX()
         .setScrollStrategy(undefined)
 
