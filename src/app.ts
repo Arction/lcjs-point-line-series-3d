@@ -63,7 +63,9 @@ const App = (
         .setAnimationScroll(true)
 
     const series =
-        seriesType === 'Point' ? chart.addPointSeries({ type: PointSeriesTypes3D.Triangulated }) :
+        seriesType === 'Point' ? chart.addPointSeries({ type: PointSeriesTypes3D.Triangulated })
+            .setPointStyle((style) => style.setSize( 8 ))
+        :
         seriesType === 'PointCloud' ? chart.addPointSeries({type: PointSeriesTypes3D.Pixelated}) :
         chart.addLineSeries()
 
@@ -126,7 +128,7 @@ const App = (
     let tStart = Date.now()
     const updateStats = () => {
         // Calculate amount of incoming points / second.
-        if (dataAmount > 0 && Date.now() - tStart > 0) {
+        if (Date.now() - tStart > 0) {
             const pps = (1000 * dataAmount) / (Date.now() - tStart)
             ppsLabel.innerHTML = `${Math.round(pps)} incoming data points / s`
         }
@@ -148,9 +150,8 @@ const App = (
     let sub_measureFPS = requestAnimationFrame(recordFrame)
 
     // Reset average counters every once in a while.
-    let lastReset = Date.now()
     const sub_resetAvgCounters = setInterval(() => {
-        tStart = lastReset = Date.now()
+        tStart = Date.now()
         dataAmount = 0
         frames = 0
     }, 5000)
@@ -269,8 +270,8 @@ document.getElementById('pointCloud').onchange = (e) => {
 
 const updateDataPointsPerSecond = () => {
     // [0 - 100] -> exponentially increasing range.
-    const sliderValue = Math.max(1, Number(dataPointsRateSlider.value))
-    dataPointsPerSecond = Math.round(100 ** (1 + Math.log10(sliderValue)))
+    const sliderValue = Number(dataPointsRateSlider.value)
+    dataPointsPerSecond = sliderValue === 0 ? 0 : Math.round(100 ** (1 + Math.log10(sliderValue)))
     console.log(`[TARGET = ${dataPointsPerSecond} data points per second]`)
 }
 updateDataPointsPerSecond()
