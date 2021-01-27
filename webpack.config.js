@@ -31,7 +31,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'lcjs-typescript-example'
+            title: 'LC JS Point and Line Series 3D Real-time Performance Test'
         })
     ]
 }
