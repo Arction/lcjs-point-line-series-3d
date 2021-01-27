@@ -212,6 +212,23 @@ body {
     margin-right: 10px;
 }
 
+#github-link {
+    position: fixed;
+    display: block;
+    bottom: 0px;
+    left: 0px;
+    margin-left: auto;
+}
+
+#github-link-image {
+    display: block;
+    margin: 10px 10px;
+}
+
+.hidden { width: 0px; height: 0px; }
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.2); }
+
 `)
 
 const div = document.createElement('div')
@@ -234,6 +251,10 @@ div.innerHTML = `
 
 <span id="pps"></span>
 <span id="fps"></span>
+
+<a id="github-link" href="https://github.com/Arction/lcjs-point-line-series-3d">
+<img id="github-link-image" class="grow" src="./GitHub-Mark-White-32px.png"/>
+</a>
 `
 div.id = 'selector-div'
 
