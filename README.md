@@ -38,29 +38,34 @@ All measurements were recorded in Google Chrome.
 
 Each data point (x, y, z) coordinate is rendered as a detailed sphere geometry.
 
-<img src='sphere-geometry.PNG' height='300'></img>
+<img src='sphere-geometry.PNG' height='150'></img>
 
 -	Low end PC A: 6 000 points / second (equivalent of 6 kHz signal)
 -	High end PC A: **108 000 points / second** (equivalent of 108 kHz signal)
+
+<img src='point-series-stream.PNG' height='150'></img>
 
 Note, how the data rendering speed greatly benefits from having a strong GPU.
 
 If *even faster* streaming speeds are required, then a *Point Cloud Series 3D* can be used to render the same data without 3D geometry for maximum performance.
 
-<img src='pixels-2D.PNG' height='300'></img>
+<img src='pixels-2D.PNG' height='150'></img>
 
 -	Low end PC A: **65 000 points / second** (equivalent of 65 kHz signal)
 -	High end PC A: **504 000 points / second** (equivalent of 504 kHz signal)
+
+<img src='point-cloud-series-stream.PNG' height='150'></img>
 
 ### Line Series 3D
 
 Active set of data points (x, y, z) coordinates is rendered as a continuous high detail line geometry.
 
-<img src='line-geometry.PNG' height='300'></img>
+<img src='line-geometry.PNG' height='150'></img>
 
 -	Low end PC A: 1 500 points / second (equivalent of 1.5 kHz signal)
 -	High end PC A: **67 000 points / second** (equivalent of 67 kHz signal)
 
+<img src='line-series-stream.PNG' height='150'></img>
 
 ## More information 
 
