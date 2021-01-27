@@ -1,4 +1,4 @@
-# LightningChart<sup>&#174;</sup> JS 3D Line and Point Series real-time performance showcase
+# JavaScript 3D charts real-time performance benchmark with LightningChart JS
 
 This repository is a showcase for rendering a rapidly streaming 3D dataset (up to more than 100 kHz) as a set of points or connected lines.
 
@@ -12,11 +12,11 @@ Hardware accelerated rendering with *WebGL* enables applications that require re
 
 ## Performance benchmarks
 
-Performance in real-time application is measured as the speed at which data can be streamed (points / second, or signal frequency Hz) while keeping a stable frame rate of 60 FPS (frames per second) and a smooth user experience for interacting with the chart.
+Performance in real-time application is measured as the speed at which data can be streamed (points / second, or signal frequency Hz) while keeping a **stable frame rate of 60 FPS** (frames per second) and a smooth user experience for interacting with the chart.
 
-Example: Feature A can handle input data from 60 kHz stream.
+Example: Feature A can render 100 000 data points per second.
 
-All input data is rendered without exception (no downsampling).
+All input data is rendered as it is, with full accuracy, without downsampling.
 
 ### Measurement machines:
 
